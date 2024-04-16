@@ -10,16 +10,14 @@ package model;
  */
 public class Champion {
     private String name;
-    private String role;
-    private String type;
+    private Role role;
     private double winrate;
     private double pickrate;
     private double banrate;
 
-    public Champion(String name, String role, String type, double winrate, double pickrate, double banrate) {
+    public Champion(String name, Role role, double winrate, double pickrate, double banrate) {
         this.name = name;
         this.role = role;
-        this.type = type;
         this.winrate = winrate;
         this.pickrate = pickrate;
         this.banrate = banrate;
@@ -32,18 +30,11 @@ public class Champion {
         this.name = name;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
-    }
-
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
     }
 
     public double getWinrate() {
@@ -69,6 +60,6 @@ public class Champion {
 
     @Override
     public String toString() {
-        return "Champion{" + "name=" + name + ", role=" + role + ", type=" + type + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + '}';
+        return "Champion{" + "name=" + name + ", role=" + role + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + '}';
     }
 }
