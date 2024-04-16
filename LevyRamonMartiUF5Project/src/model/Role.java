@@ -15,7 +15,7 @@ import java.util.Map;
 
 
 public class Role {
-    private static Map<Integer, Role> roles = new HashMap<Integer, Role>();
+    private static Map<Integer, Role> roles = new HashMap<>();
     
     private String name;
 
