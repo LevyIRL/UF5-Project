@@ -12,8 +12,6 @@ import java.util.Map;
  * @author levy
  */
 
-
-
 public class Role {
     private static Map<Integer, Role> roles = new HashMap<>();
     
