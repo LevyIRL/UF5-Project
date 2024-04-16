@@ -4,10 +4,25 @@
  */
 package model;
 
+import java.util.HashSet;
+
 /**
  *
  * @author levy
  */
 public class characterRoster {
+    private HashSet<Champion> championList;
+
+    public characterRoster(HashSet<Champion> championList) {
+        this.championList = new HashSet<Champion>();
+    }
+
+    public HashSet<Champion> getChampionList() {
+        return championList;
+    }
+
+    public void setChampionList(HashSet<Champion> championList) {
+        this.championList = championList;
+    }
     
 }
