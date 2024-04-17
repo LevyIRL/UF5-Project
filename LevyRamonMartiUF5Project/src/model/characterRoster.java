@@ -4,25 +4,64 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  *
  * @author levy
  */
 public class characterRoster {
-    private HashSet<Champion> championList;
+    private String gameVersion;
+    private Set<Champion> championList;
+    private ArrayList<Role> roleList;
 
-    public characterRoster(HashSet<Champion> championList) {
-        this.championList = new HashSet<Champion>();
+    public characterRoster(String gameVersion) {
+        this.gameVersion = gameVersion;
+        this.championList = new HashSet<>();
+        this.roleList = new ArrayList<>();
     }
 
-    public HashSet<Champion> getChampionList() {
+    public Set<Champion> getChampionList() {
         return championList;
     }
-
-    public void setChampionList(HashSet<Champion> championList) {
+    public void setChampionList(Set<Champion> championList) {
         this.championList = championList;
     }
+
+    public ArrayList<Role> getRoleList() {
+        return roleList;
+    }
+    public void setRoleList(ArrayList<Role> roleList) {
+        this.roleList = roleList;
+    }
+
+    public boolean addRole(Role item){
+        return roleList.add(item);
+    }
     
+    public boolean addChamp(Champion item){
+        return this.championList.add(item);
+    }
+    
+    public void showChamps(){
+        for (Champion c : championList) {
+            System.out.println(c.toString());
+        }
+    }
+    
+    public boolean deleteChamp(int code){
+        return championList.remove(searchChamp(code));
+    }
+    
+    public Champion searchChamp(int code){
+        for (Champion champion : championList) {
+            if(code == champion.getCode()){
+                return champion;
+            }
+        }
+        return null;
+    }
 }

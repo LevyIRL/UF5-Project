@@ -8,7 +8,8 @@ package model;
  *
  * @author levy
  */
-public class Champion {
+public class Champion implements Comparable<Champion>{
+    private int code;
     private String name;
     private Role role;
     private double winrate;
@@ -16,7 +17,8 @@ public class Champion {
     private double banrate;
     private boolean isRanged;
 
-    public Champion(String name, Role role, double winrate, double pickrate, double banrate, boolean isRanged) {
+    public Champion(int code, String name, Role role, double winrate, double pickrate, double banrate, boolean isRanged) {
+        this.code = code;
         this.name = name;
         this.role = role;
         this.winrate = winrate;
@@ -67,9 +69,49 @@ public class Champion {
         this.isRanged = isRanged;
     }
 
+    public int getCode() {
+        return code;
+    }
+    public void setCode(int code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
-        return "Champion{" + "name=" + name + ", role=" + role + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + ", isRanged=" + isRanged + '}';
+        return "Champion{" + "code=" + code + ", name=" + name + ", role=" + role.toString() + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + ", isRanged=" + isRanged + '}';
+    }
+
+    @Override
+    public int compareTo(Champion o) {
+        if(this.code < o.getCode()){
+            return -1;
+        }else if(this.code == o.getCode()){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + this.code;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Champion other = (Champion) obj;
+        return this.code == other.code;
     }
     
     

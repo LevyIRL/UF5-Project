@@ -1,23 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Main;
 
 import model.Champion;
 import model.Role;
 import model.characterRoster;
+import view.MainView;
 
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 /**
  *
  * @author levy
  */
-public class Main {
+public class MainController {
 
-    public static void main(String[] args) {
-        characterRoster champList;
-        champList = initData();
-        champList.showChamps();
+    private MainView mainV;
+    private characterRoster champList;
+
+    public MainController() {
+        //this.mainV = new MainView(this);
+        this.champList = initData();
+        this.champList.showChamps();
+
     }
 
     public static characterRoster initData() {
@@ -40,7 +44,6 @@ public class Main {
         v14.addChamp(sion);
         v14.addChamp(aatrox);
         v14.addChamp(twitch);
-
 
         return v14;
     }

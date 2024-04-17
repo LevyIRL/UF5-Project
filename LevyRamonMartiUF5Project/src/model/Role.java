@@ -4,29 +4,16 @@
  */
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
  * @author levy
  */
 
-public class Role {
-    private static Map<Integer, Role> roles = new HashMap<>();
-    
+public class Role {    
     private String name;
 
     public Role(String name) {
         this.name = name;
-    }
-
-    public static Map<Integer, Role> getRoles() {
-        return roles;
-    }
-
-    public static void setRoles(Map<Integer, Role> roles) {
-        Role.roles = roles;
     }
 
     public String getName() {
@@ -35,6 +22,11 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" + "name=" + name + '}';
     }
     
     
