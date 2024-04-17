@@ -14,13 +14,15 @@ public class Champion {
     private double winrate;
     private double pickrate;
     private double banrate;
+    private boolean isRanged;
 
-    public Champion(String name, Role role, double winrate, double pickrate, double banrate) {
+    public Champion(String name, Role role, double winrate, double pickrate, double banrate, boolean isRanged) {
         this.name = name;
         this.role = role;
         this.winrate = winrate;
         this.pickrate = pickrate;
         this.banrate = banrate;
+        this.isRanged = isRanged;
     }
 
     public String getName() {
@@ -58,8 +60,17 @@ public class Champion {
         this.banrate = banrate;
     }
 
+    public boolean isIsRanged() {
+        return isRanged;
+    }
+    public void setIsRanged(boolean isRanged) {
+        this.isRanged = isRanged;
+    }
+
     @Override
     public String toString() {
-        return "Champion{" + "name=" + name + ", role=" + role + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + '}';
+        return "Champion{" + "name=" + name + ", role=" + role + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + ", isRanged=" + isRanged + '}';
     }
+    
+    
 }
