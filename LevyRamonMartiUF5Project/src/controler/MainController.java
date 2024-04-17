@@ -1,3 +1,5 @@
+package controler;
+
 
 import model.Champion;
 import model.Role;
@@ -18,10 +20,10 @@ public class MainController {
     private characterRoster champList;
 
     public MainController() {
-        //this.mainV = new MainView(this);
+        this.mainV = new MainView(this);
         this.champList = initData();
         this.champList.showChamps();
-
+        this.mainV.setVisible(true);
     }
 
     public static characterRoster initData() {
