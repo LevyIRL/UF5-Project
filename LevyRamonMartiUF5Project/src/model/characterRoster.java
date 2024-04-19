@@ -24,6 +24,14 @@ public class characterRoster {
         this.roleList = new ArrayList<>();
     }
 
+    
+    public String getGameVersion() {
+        return gameVersion;
+    }
+    public void setGameVersion(String gameVersion) {
+        this.gameVersion = gameVersion;
+    }
+    
     public Set<Champion> getChampionList() {
         return championList;
     }
@@ -58,4 +66,7 @@ public class characterRoster {
         }
         return null;
     }
+
+    
+    
 }

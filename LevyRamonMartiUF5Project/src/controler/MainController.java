@@ -1,7 +1,8 @@
 package controler;
 
-
 import java.util.Set;
+import java.util.TreeSet;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Champion;
 import model.Role;
@@ -38,19 +39,58 @@ public class MainController {
         }
         return txt;
     }
-    
+
     private TableModel getChampsDataTable() {
-        return null;
+        DefaultTableModel tm = new DefaultTableModel() {
+            Class[] columnTypes = {Integer.class, String.class, Double.class, Double.class, Double.class, String.class, Boolean.class};
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return true;
+            }
+
+            @Override
+
+            public Class getColumnClass(int columnIndex) {
+
+                return columnTypes[columnIndex];
+            }
+
+        };
+        tm.addColumn("Code");
+        tm.addColumn("Name");
+        tm.addColumn("Winrate");
+        tm.addColumn("Pickrate");
+        tm.addColumn("Banrate");
+        tm.addColumn("Role");
+        tm.addColumn("Is Ranged");
+
+
+        TreeSet<Champion> champs = new TreeSet<>();
+        champs.addAll(champList.getChampionList());
+
+        for (Champion champ : champs) {
+            Object[] row = new Object[7];
+            row[0] = champ.getCode();
+            row[1] = champ.getName();
+            row[2] = champ.getWinrate();
+            row[3] = champ.getPickrate();
+            row[4] = champ.getBanrate();
+            row[5] = champ.getRole().getName();
+            row[6] = champ.isIsRanged();
+            tm.addRow(row);
+        }
+        return tm;
     }
-    
+
     public void showChamps() {
         String txt = this.getChampsTxt();
         mainV.setInfoTextArea(txt);
-        //TableModel tm = this.getChampsDataTable();
-        //mainV.setInfoTable(tm);
+        TableModel tm = this.getChampsDataTable();
+        mainV.setInfoTable(tm);
 
     }
-    
+
     public static characterRoster initData() {
         characterRoster v14 = new characterRoster("14.7");
         Role top = new Role("Top");
