@@ -1,9 +1,12 @@
 package controler;
 
 
+import java.util.Set;
+import javax.swing.table.TableModel;
 import model.Champion;
 import model.Role;
 import model.characterRoster;
+import view.AddView;
 import view.MainView;
 
 /*
@@ -18,14 +21,36 @@ public class MainController {
 
     private MainView mainV;
     private characterRoster champList;
+    private AddView addView;
 
     public MainController() {
         this.mainV = new MainView(this);
         this.champList = initData();
-        this.champList.showChamps();
+        showChamps();
         this.mainV.setVisible(true);
     }
 
+    private String getChampsTxt() {
+        String txt = "";
+        Set<Champion> champions = champList.getChampionList();
+        for (Champion champ : champions) {
+            txt += champ.toString() + "\n";
+        }
+        return txt;
+    }
+    
+    private TableModel getChampsDataTable() {
+        return null;
+    }
+    
+    public void showChamps() {
+        String txt = this.getChampsTxt();
+        mainV.setInfoTextArea(txt);
+        //TableModel tm = this.getChampsDataTable();
+        //mainV.setInfoTable(tm);
+
+    }
+    
     public static characterRoster initData() {
         characterRoster v14 = new characterRoster("14.7");
         Role top = new Role("Top");

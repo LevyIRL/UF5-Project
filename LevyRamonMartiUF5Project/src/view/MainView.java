@@ -5,6 +5,7 @@
 package view;
 
 import controler.MainController;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -20,6 +21,15 @@ public class MainView extends javax.swing.JFrame {
     public MainView(MainController ctl) {
         this.mainCtl = ctl;
         initComponents();
+    }
+
+    public void setInfoTextArea(String txt) {
+        jTextArea1.setText(txt);
+    }
+
+    public void setInfoTable(TableModel tm) {
+        jTable1.setModel(tm);
+
     }
 
     /**
@@ -43,15 +53,30 @@ public class MainView extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Code", "Name", "Role", "Winrate", "Pick Rate", "Ban Rate", "Ranged"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jTextArea1.setColumns(20);

@@ -46,12 +46,6 @@ public class characterRoster {
         return this.championList.add(item);
     }
     
-    public void showChamps(){
-        for (Champion c : championList) {
-            System.out.println(c.toString());
-        }
-    }
-    
     public boolean deleteChamp(int code){
         return championList.remove(searchChamp(code));
     }
