@@ -83,11 +83,10 @@ public class MainController {
     }
 
     public void showChamps() {
-        String txt = this.getChampsTxt();
-        mainV.setInfoTextArea(txt);
+        //String txt = this.getChampsTxt();
+        //mainV.setInfoTextArea(txt);
         TableModel tm = this.getChampsDataTable();
         mainV.setInfoTable(tm);
-
     }
 
     public static characterRoster initData() {
