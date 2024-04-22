@@ -12,15 +12,17 @@ public class Champion implements Comparable<Champion>{
     private int code;
     private String name;
     private Role role;
+    private Region region;
     private double winrate;
     private double pickrate;
     private double banrate;
     private boolean isRanged;
 
-    public Champion(int code, String name, Role role, double winrate, double pickrate, double banrate, boolean isRanged) {
+    public Champion(int code, String name, Role role, Region region, double winrate, double pickrate, double banrate, boolean isRanged) {
         this.code = code;
         this.name = name;
         this.role = role;
+        this.region = region;
         this.winrate = winrate;
         this.pickrate = pickrate;
         this.banrate = banrate;
@@ -76,9 +78,16 @@ public class Champion implements Comparable<Champion>{
         this.code = code;
     }
 
+    public Region getRegion() {
+        return region;
+    }
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+    
     @Override
     public String toString() {
-        return "Champion{" + "code=" + code + ", name=" + name + ", role=" + role.toString() + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + ", isRanged=" + isRanged + '}';
+        return "Champion{" + "code=" + code + ", name=" + name + ", role=" + role.toString() + ", region=" + region.toString() + ", winrate=" + winrate + ", pickrate=" + pickrate + ", banrate=" + banrate + ", isRanged=" + isRanged + '}';
     }
 
     @Override

@@ -17,6 +17,7 @@ public class MainView extends javax.swing.JFrame {
      * Creates new form MainView
      */
     private MainController mainCtl;
+    private AddView addV;
     
     public MainView(MainController ctl) {
         this.mainCtl = ctl;
@@ -137,7 +138,8 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+        this.addV = new AddView(this, true);
+        this.addV.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
     /**

@@ -17,11 +17,13 @@ public class characterRoster {
     private String gameVersion;
     private Set<Champion> championList;
     private ArrayList<Role> roleList;
+    private ArrayList<Region> regionList;
 
     public characterRoster(String gameVersion) {
         this.gameVersion = gameVersion;
         this.championList = new HashSet<>();
         this.roleList = new ArrayList<>();
+        this.regionList = new ArrayList<>();
     }
 
     
@@ -46,12 +48,25 @@ public class characterRoster {
         this.roleList = roleList;
     }
 
+    public ArrayList<Region> getRegionList() {
+        return regionList;
+    }
+    public void setRegionList(ArrayList<Region> regionList) {
+        this.regionList = regionList;
+    }
+    
+    
+
     public boolean addRole(Role item){
         return roleList.add(item);
     }
     
     public boolean addChamp(Champion item){
         return this.championList.add(item);
+    }
+    
+    public boolean addRegion(Region item){
+        return this.regionList.add(item);
     }
     
     public boolean deleteChamp(int code){

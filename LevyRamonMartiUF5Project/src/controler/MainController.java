@@ -46,7 +46,7 @@ public class MainController {
 
             @Override
             public boolean isCellEditable(int row, int column) {
-                return true;
+                return false;
             }
 
             @Override
@@ -101,6 +101,8 @@ public class MainController {
         v14.addRole(mid);
         v14.addRole(bot);
         v14.addRole(sup);
+        
+        
 
         Champion twitch = new Champion(1, "Twitch", bot, 50, 2, 2, true);
         Champion aatrox = new Champion(2, "Aatrox", top, 50, 2, 2, false);
