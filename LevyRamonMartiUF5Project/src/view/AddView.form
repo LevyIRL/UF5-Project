@@ -76,7 +76,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel8" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="roleComboBox" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="regionComboBox" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -126,14 +126,14 @@
                   <Component id="banrateTextField" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel7" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="isRangedCheckBox" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel7" linkSize="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="roleComboBox" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="regionComboBox" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="addChampButton" linkSize="2" min="-2" max="-2" attributes="0"/>
@@ -261,7 +261,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="isRangedCheckBox">
     </Component>
-    <Component class="javax.swing.JComboBox" name="roleComboBox">
+    <Component class="javax.swing.JComboBox" name="regionComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -272,7 +272,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleComboBoxActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regionComboBoxActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
