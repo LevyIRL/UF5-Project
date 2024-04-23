@@ -13,12 +13,12 @@ public class Champion implements Comparable<Champion>{
     private String name;
     private Role role;
     private Region region;
-    private double winrate;
+    private int winrate;
     private double pickrate;
     private double banrate;
     private boolean isRanged;
 
-    public Champion(int code, String name, Role role, Region region, double winrate, double pickrate, double banrate, boolean isRanged) {
+    public Champion(int code, String name, Role role, Region region, int winrate, double pickrate, double banrate, boolean isRanged) {
         this.code = code;
         this.name = name;
         this.role = role;
@@ -28,6 +28,8 @@ public class Champion implements Comparable<Champion>{
         this.banrate = banrate;
         this.isRanged = isRanged;
     }
+    
+    public Champion(){}
 
     public String getName() {
         return name;
@@ -43,10 +45,10 @@ public class Champion implements Comparable<Champion>{
         this.role = role;
     }
 
-    public double getWinrate() {
+    public int getWinrate() {
         return winrate;
     }
-    public void setWinrate(double winrate) {
+    public void setWinrate(int winrate) {
         this.winrate = winrate;
     }
 
