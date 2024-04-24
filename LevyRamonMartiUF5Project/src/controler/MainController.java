@@ -9,6 +9,8 @@ import model.Region;
 import model.Role;
 import model.characterRoster;
 import view.AddView;
+import view.ConfirmationDeleteView;
+import view.DeleteView;
 import view.MainView;
 
 /*
@@ -24,6 +26,8 @@ public class MainController {
     private MainView mainV;
     private characterRoster champList;
     private AddView addView;
+    private DeleteView delView;
+    private ConfirmationDeleteView confirmDelView;
 
     public MainController() {
         this.mainV = new MainView(this);
@@ -160,6 +164,16 @@ public class MainController {
         System.out.println("El botó afegir ha arribat al controlador");
         addView = new AddView(mainV, true, this);
         addView.setVisible(true);
+    }
+    
+    public void delChampView(){
+        delView = new DeleteView(mainV, true, this);
+        delView.setVisible(true);
+    }
+    
+    public void confirmDelChampView(int code){
+        confirmDelView = new ConfirmationDeleteView(mainV, true, this, code);
+        confirmDelView.setVisible(true);
     }
 
     public characterRoster getChampList() {
