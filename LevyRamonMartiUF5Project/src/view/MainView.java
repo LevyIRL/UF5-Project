@@ -92,6 +92,11 @@ public class MainView extends javax.swing.JFrame {
         });
 
         modifyButton.setText("Modify");
+        modifyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyButtonActionPerformed(evt);
+            }
+        });
 
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +154,10 @@ public class MainView extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         mainCtl.delChampView();
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
+        mainCtl.modifidyChampView();
+    }//GEN-LAST:event_modifyButtonActionPerformed
 
     /**
      * @param args the command line arguments

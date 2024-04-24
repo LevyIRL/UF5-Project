@@ -12,6 +12,7 @@ import view.AddView;
 import view.ConfirmationDeleteView;
 import view.DeleteView;
 import view.MainView;
+import view.ModifyView;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -28,6 +29,7 @@ public class MainController {
     private AddView addView;
     private DeleteView delView;
     private ConfirmationDeleteView confirmDelView;
+    private ModifyView modifyView;
 
     public MainController() {
         this.mainV = new MainView(this);
@@ -90,8 +92,8 @@ public class MainController {
     }
 
     public void showChamps() {
-        String txt = this.getChampsTxt();
-        mainV.setInfoTextArea(txt);
+        //String txt = this.getChampsTxt();
+        //mainV.setInfoTextArea(txt);
         TableModel tm = this.getChampsDataTable();
         mainV.setInfoTable(tm);
     }
@@ -164,6 +166,12 @@ public class MainController {
         System.out.println("El botó afegir ha arribat al controlador");
         addView = new AddView(mainV, true, this);
         addView.setVisible(true);
+    }
+    
+    public void modifidyChampView() {
+        System.out.println("El botó afegir ha arribat al controlador");
+        modifyView = new ModifyView(mainV, true, this);
+        modifyView.setVisible(true);
     }
     
     public void delChampView(){
