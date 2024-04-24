@@ -261,7 +261,6 @@ public class ModifyView extends javax.swing.JDialog {
         double pickrate = (double) (Double.parseDouble(pickrateTextField.getText()));
         double banrate = (double) (Double.parseDouble(banrateTextField.getText()));
         boolean isRanged = isRangedCheckBox.isEnabled();
-        System.out.println((String)(regionComboBox.getSelectedItem()));
         String regionName = (String) (regionComboBox.getSelectedItem());
         Region region = null;
         if(mainCtl.getChampList().searchRegion(regionName) == -1){
