@@ -5,7 +5,7 @@
 package view;
 
 import controler.MainController;
-import javax.swing.plaf.synth.Region;
+import model.Region;
 import model.Champion;
 import model.Role;
 
@@ -15,11 +15,14 @@ import model.Role;
  */
 public class AddView extends javax.swing.JDialog {
 
+    private MainController mainCtl;
+
     /**
      * Creates new form AddView
      */
     public AddView(java.awt.Frame parent, boolean modal, MainController ctl) {
         super(parent, modal);
+        this.mainCtl = ctl;
         initComponents();
     }
 
@@ -44,11 +47,11 @@ public class AddView extends javax.swing.JDialog {
         addChampButton = new javax.swing.JButton();
         CodeTextField = new javax.swing.JTextField();
         NameTextField = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        topButton = new javax.swing.JRadioButton();
+        jngButton = new javax.swing.JRadioButton();
+        midButton = new javax.swing.JRadioButton();
+        botButton = new javax.swing.JRadioButton();
+        supButton = new javax.swing.JRadioButton();
         winrateTextField = new javax.swing.JTextField();
         pickrateTextField = new javax.swing.JTextField();
         banrateTextField = new javax.swing.JTextField();
@@ -84,25 +87,25 @@ public class AddView extends javax.swing.JDialog {
 
         NameTextField.setText("NAME");
 
-        roleButtonGroup.add(jRadioButton1);
-        jRadioButton1.setText("Top");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        roleButtonGroup.add(topButton);
+        topButton.setText("Top");
+        topButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                topButtonActionPerformed(evt);
             }
         });
 
-        roleButtonGroup.add(jRadioButton2);
-        jRadioButton2.setText("Jng");
+        roleButtonGroup.add(jngButton);
+        jngButton.setText("Jng");
 
-        roleButtonGroup.add(jRadioButton3);
-        jRadioButton3.setText("Mid");
+        roleButtonGroup.add(midButton);
+        midButton.setText("Mid");
 
-        roleButtonGroup.add(jRadioButton4);
-        jRadioButton4.setText("Bot");
+        roleButtonGroup.add(botButton);
+        botButton.setText("Bot");
 
-        roleButtonGroup.add(jRadioButton5);
-        jRadioButton5.setText("Sup");
+        roleButtonGroup.add(supButton);
+        supButton.setText("Sup");
 
         winrateTextField.setText("WINRATE");
 
@@ -110,7 +113,7 @@ public class AddView extends javax.swing.JDialog {
 
         banrateTextField.setText("BANRATE");
 
-        regionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Runeterra", "Zaun", "Ionia" }));
+        regionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Runeterra", "Zaun", "Piltover", "Ionia", "Freljord", "Demacia", "Noxus", "Bilgewater", "Shadow isle", "Bandle City", "Shurima", "The Void", "Targon", "Ixtal", "Unknown", " " }));
         regionComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regionComboBoxActionPerformed(evt);
@@ -131,15 +134,15 @@ public class AddView extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(topButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jngButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(midButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botButton, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(supButton, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(83, 83, 83)
@@ -173,7 +176,7 @@ public class AddView extends javax.swing.JDialog {
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, pickrateTextField, regionComboBox, winrateTextField});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4, jRadioButton5});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botButton, jngButton, midButton, supButton, topButton});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,11 +192,11 @@ public class AddView extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton4))
+                    .addComponent(topButton)
+                    .addComponent(midButton)
+                    .addComponent(jngButton)
+                    .addComponent(supButton)
+                    .addComponent(botButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -219,35 +222,53 @@ public class AddView extends javax.swing.JDialog {
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, isRangedCheckBox, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jRadioButton1, jRadioButton2, jRadioButton3, jRadioButton4, jRadioButton5, pickrateTextField, regionComboBox, winrateTextField});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, botButton, isRangedCheckBox, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jngButton, midButton, pickrateTextField, regionComboBox, supButton, topButton, winrateTextField});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void topButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_topButtonActionPerformed
 
     private void regionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_regionComboBoxActionPerformed
 
     private void addChampButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addChampButtonActionPerformed
-        Champion newChamp = new Champion();
+        
         int code = (int) (Double.parseDouble(CodeTextField.getText()));
         String name = (String) (NameTextField.getText());
-        /*roleButtonGroup.getElements().asIterator().forEachRemaining(roleSelected->{
-            if(roleSelected.isSelected()){
-                int role = (int) (Double.parseDouble(roleSelected.getText()));
-            }
-        });*/
+        
+        Role role = null;
+        if(topButton.isSelected()){
+            role = mainCtl.getChampList().getRoleList().get(0);
+        }else if(jngButton.isSelected()){
+            role = mainCtl.getChampList().getRoleList().get(1);
+        }else if(midButton.isSelected()){
+            role = mainCtl.getChampList().getRoleList().get(2);
+        }else if(botButton.isSelected()){
+            role = mainCtl.getChampList().getRoleList().get(3);
+        }else if(supButton.isSelected()){
+            role = mainCtl.getChampList().getRoleList().get(4);
+        }
+        
         int winrate = (int) (Double.parseDouble(winrateTextField.getText()));
         double pickrate = (double) (Double.parseDouble(pickrateTextField.getText()));
         double banrate = (double) (Double.parseDouble(banrateTextField.getText()));
         boolean isRanged = isRangedCheckBox.isEnabled();
-        System.out.println(regionComboBox.getSelectedItem());
-        //regionComboBox.getSelectedItem();
-
+        System.out.println((String)(regionComboBox.getSelectedItem()));
+        String regionName = (String) (regionComboBox.getSelectedItem());
+        Region region = null;
+        if(mainCtl.getChampList().searchRegion(regionName) == -1){
+            region = new Region(regionName);
+            mainCtl.getChampList().addRegion(region);
+        }else{
+            region = mainCtl.getChampList().getRegionList().get(mainCtl.getChampList().searchRegion(regionName));
+        }
+        Champion newChamp = new Champion(code, name, role, region, winrate, pickrate, banrate, isRanged);
+        mainCtl.getChampList().addChamp(newChamp);
+        mainCtl.showChamps();
     }//GEN-LAST:event_addChampButtonActionPerformed
 
     /**
@@ -297,6 +318,7 @@ public class AddView extends javax.swing.JDialog {
     private javax.swing.JTextField NameTextField;
     private javax.swing.JButton addChampButton;
     private javax.swing.JTextField banrateTextField;
+    private javax.swing.JRadioButton botButton;
     private javax.swing.JCheckBox isRangedCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -306,14 +328,13 @@ public class AddView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jngButton;
+    private javax.swing.JRadioButton midButton;
     private javax.swing.JTextField pickrateTextField;
     private javax.swing.JComboBox<String> regionComboBox;
     private javax.swing.ButtonGroup roleButtonGroup;
+    private javax.swing.JRadioButton supButton;
+    private javax.swing.JRadioButton topButton;
     private javax.swing.JTextField winrateTextField;
     // End of variables declaration//GEN-END:variables
 }

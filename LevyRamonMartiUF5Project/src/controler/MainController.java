@@ -161,4 +161,13 @@ public class MainController {
         addView = new AddView(mainV, true, this);
         addView.setVisible(true);
     }
+
+    public characterRoster getChampList() {
+        return champList;
+    }
+
+    public void setChampList(characterRoster champList) {
+        this.champList = champList;
+    }
+    
 }

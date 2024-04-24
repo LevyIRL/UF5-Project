@@ -38,15 +38,15 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel3" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jRadioButton1" linkSize="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="topButton" linkSize="3" min="-2" pref="57" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" linkSize="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jngButton" linkSize="3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" linkSize="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="midButton" linkSize="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4" linkSize="3" min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="botButton" linkSize="3" min="-2" pref="18" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jRadioButton5" linkSize="3" min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="supButton" linkSize="3" min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel7" linkSize="1" min="-2" max="-2" attributes="0"/>
@@ -104,11 +104,11 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton1" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton3" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton2" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton5" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton4" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="topButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="midButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jngButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="supButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -201,7 +201,7 @@
         <Property name="text" type="java.lang.String" value="NAME"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="topButton">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="roleButtonGroup"/>
@@ -209,10 +209,10 @@
         <Property name="text" type="java.lang.String" value="Top"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="topButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+    <Component class="javax.swing.JRadioButton" name="jngButton">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="roleButtonGroup"/>
@@ -220,7 +220,7 @@
         <Property name="text" type="java.lang.String" value="Jng"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+    <Component class="javax.swing.JRadioButton" name="midButton">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="roleButtonGroup"/>
@@ -228,7 +228,7 @@
         <Property name="text" type="java.lang.String" value="Mid"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+    <Component class="javax.swing.JRadioButton" name="botButton">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="roleButtonGroup"/>
@@ -236,7 +236,7 @@
         <Property name="text" type="java.lang.String" value="Bot"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+    <Component class="javax.swing.JRadioButton" name="supButton">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="roleButtonGroup"/>
@@ -264,10 +264,23 @@
     <Component class="javax.swing.JComboBox" name="regionComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="16">
             <StringItem index="0" value="Runeterra"/>
             <StringItem index="1" value="Zaun"/>
-            <StringItem index="2" value="Ionia"/>
+            <StringItem index="2" value="Piltover"/>
+            <StringItem index="3" value="Ionia"/>
+            <StringItem index="4" value="Freljord"/>
+            <StringItem index="5" value="Demacia"/>
+            <StringItem index="6" value="Noxus"/>
+            <StringItem index="7" value="Bilgewater"/>
+            <StringItem index="8" value="Shadow isle"/>
+            <StringItem index="9" value="Bandle City"/>
+            <StringItem index="10" value="Shurima"/>
+            <StringItem index="11" value="The Void"/>
+            <StringItem index="12" value="Targon"/>
+            <StringItem index="13" value="Ixtal"/>
+            <StringItem index="14" value="Unknown"/>
+            <StringItem index="15" value=" "/>
           </StringArray>
         </Property>
       </Properties>

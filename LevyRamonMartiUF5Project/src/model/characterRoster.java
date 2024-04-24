@@ -69,6 +69,17 @@ public class characterRoster {
         return this.regionList.add(item);
     }
     
+    public int searchRegion(String search){
+        int pos = 0;
+        for (Region region : regionList) {
+            if(region.getName().equals(search)){
+                return pos;
+            }
+            pos++;
+        }
+        return -1;
+    }
+    
     public boolean deleteChamp(int code){
         return championList.remove(searchChamp(code));
     }
