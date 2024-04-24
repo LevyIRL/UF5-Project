@@ -169,12 +169,13 @@ public class MainController {
     }
     
     public void modifidyChampView() {
-        System.out.println("El botó afegir ha arribat al controlador");
+        System.out.println("El botó modificar ha arribat al controlador");
         modifyView = new ModifyView(mainV, true, this);
         modifyView.setVisible(true);
     }
     
     public void delChampView(){
+        System.out.println("El botó delete ha arribat al controlador");
         delView = new DeleteView(mainV, true, this);
         delView.setVisible(true);
     }
