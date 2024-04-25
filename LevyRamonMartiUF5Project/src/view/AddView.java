@@ -268,6 +268,7 @@ public class AddView extends javax.swing.JDialog {
         Champion newChamp = new Champion(code, name, role, region, winrate, pickrate, banrate, isRanged);
         mainCtl.getChampList().addChamp(newChamp);
         mainCtl.showChamps();
+        this.dispose();
     }//GEN-LAST:event_addChampButtonActionPerformed
 
     /**

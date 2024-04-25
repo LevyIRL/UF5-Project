@@ -279,6 +279,8 @@ public class ModifyView extends javax.swing.JDialog {
         modifyChamp.setRegion(region);
         
         mainCtl.showChamps();
+        
+        this.dispose();
     }//GEN-LAST:event_modifyChampButtonActionPerformed
 
     /**
