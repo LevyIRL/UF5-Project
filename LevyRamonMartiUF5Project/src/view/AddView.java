@@ -57,6 +57,7 @@ public class AddView extends javax.swing.JDialog {
         banrateTextField = new javax.swing.JTextField();
         isRangedCheckBox = new javax.swing.JCheckBox();
         regionComboBox = new javax.swing.JComboBox<>();
+        confirmationAddedLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -120,10 +121,16 @@ public class AddView extends javax.swing.JDialog {
             }
         });
 
+        confirmationAddedLabel.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addChampButton)
+                .addGap(201, 201, 201))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,10 +175,10 @@ public class AddView extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(regionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addChampButton)
-                .addGap(201, 201, 201))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(confirmationAddedLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, pickrateTextField, regionComboBox, winrateTextField});
@@ -219,7 +226,9 @@ public class AddView extends javax.swing.JDialog {
                     .addComponent(regionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(addChampButton)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(confirmationAddedLabel)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, botButton, isRangedCheckBox, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jngButton, midButton, pickrateTextField, regionComboBox, supButton, topButton, winrateTextField});
@@ -266,9 +275,24 @@ public class AddView extends javax.swing.JDialog {
             region = mainCtl.getChampList().getRegionList().get(mainCtl.getChampList().searchRegion(regionName));
         }
         Champion newChamp = new Champion(code, name, role, region, winrate, pickrate, banrate, isRanged);
-        mainCtl.getChampList().addChamp(newChamp);
-        mainCtl.showChamps();
-        this.dispose();
+        if(mainCtl.getChampList().addChamp(newChamp)){
+            confirmationAddedLabel.setText("Champion " + name + " with code " + code + " was succesfully added.");
+            CodeTextField.setText("");
+            NameTextField.setText("");
+            roleButtonGroup.clearSelection();
+            winrateTextField.setText("");
+            pickrateTextField.setText("");
+            banrateTextField.setText("");
+            isRangedCheckBox.setEnabled(false);
+            regionComboBox.setSelectedIndex(0);
+            
+            mainCtl.showChamps();
+        }else{
+            
+        }
+        
+        
+        
     }//GEN-LAST:event_addChampButtonActionPerformed
 
     /**
@@ -319,6 +343,7 @@ public class AddView extends javax.swing.JDialog {
     private javax.swing.JButton addChampButton;
     private javax.swing.JTextField banrateTextField;
     private javax.swing.JRadioButton botButton;
+    private javax.swing.JLabel confirmationAddedLabel;
     private javax.swing.JCheckBox isRangedCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
