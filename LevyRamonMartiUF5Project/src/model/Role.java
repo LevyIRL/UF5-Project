@@ -9,7 +9,7 @@ package model;
  * @author levy
  */
 
-public class Role {    
+public class Role {
     private String name;
 
     public Role(String name) {

@@ -16,14 +16,17 @@ import model.Role;
 public class ModifyView extends javax.swing.JDialog {
 
     private MainController mainCtl;
+    int code;
 
     /**
      * Creates new form AddView
      */
-    public ModifyView(java.awt.Frame parent, boolean modal, MainController ctl) {
+    public ModifyView(java.awt.Frame parent, boolean modal, MainController ctl, int code) {
         super(parent, modal);
         this.mainCtl = ctl;
         initComponents();
+        initView(code);
+        
     }
 
     /**
@@ -235,12 +238,30 @@ public class ModifyView extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_regionComboBoxActionPerformed
 
+    private void initView(int code){
+        Champion champ = mainCtl.getChampList().searchChamp(code);
+        CodeTextField.setText(String.valueOf(champ.getCode()));
+        CodeTextField.setEditable(false);
+        NameTextField.setText(champ.getName());
+        if(champ.getRole().getName().equals("Top")){
+            topButton.setSelected(true);
+        }else if(champ.getRole().getName().equals("Jng")){
+            jngButton.setSelected(true);
+        }else if(champ.getRole().getName().equals("Mid")){
+            midButton.setSelected(true);
+        }else if(champ.getRole().getName().equals("Bot")){
+            botButton.setSelected(true);
+        }else if(champ.getRole().getName().equals("Sup")){
+            supButton.setSelected(true);
+        }
+        winrateTextField.setText(String.valueOf(champ.getWinrate()));
+        pickrateTextField.setText(String.valueOf(champ.getPickrate()));
+        banrateTextField.setText(String.valueOf(champ.getBanrate()));
+        isRangedCheckBox.setSelected(champ.isIsRanged());
+        regionComboBox.setSelectedItem(champ.getRegion().getName());
+    }
+    
     private void modifyChampButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyChampButtonActionPerformed
-        
-        
-        
-        int code = (int) (Double.parseDouble(CodeTextField.getText()));
-        
         Champion modifyChamp = mainCtl.getChampList().searchChamp(code);
         
         String name = (String) (NameTextField.getText());
@@ -314,7 +335,7 @@ public class ModifyView extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ModifyView dialog = new ModifyView(new javax.swing.JFrame(), true, null);
+                ModifyView dialog = new ModifyView(new javax.swing.JFrame(), true, null, 0);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

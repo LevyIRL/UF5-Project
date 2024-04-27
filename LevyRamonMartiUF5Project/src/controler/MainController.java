@@ -9,6 +9,7 @@ import model.Region;
 import model.Role;
 import model.characterRoster;
 import view.AddView;
+import view.ChooseModifyView;
 import view.ConfirmationDeleteView;
 import view.DeleteView;
 import view.MainView;
@@ -30,6 +31,7 @@ public class MainController {
     private DeleteView delView;
     private ConfirmationDeleteView confirmDelView;
     private ModifyView modifyView;
+    private ChooseModifyView chooseModifyView;
 
     public MainController() {
         this.mainV = new MainView(this);
@@ -168,9 +170,15 @@ public class MainController {
         addView.setVisible(true);
     }
     
-    public void modifidyChampView() {
+    public void chooseModifyView(){
         System.out.println("El botó modificar ha arribat al controlador");
-        modifyView = new ModifyView(mainV, true, this);
+        chooseModifyView = new ChooseModifyView(mainV, true, this);
+        chooseModifyView.setVisible(true);
+    }
+    
+    public void modifidyChampView(int code) {
+        System.out.println("El botó modificar ha arribat al controlador");
+        modifyView = new ModifyView(mainV, true, this, code);
         modifyView.setVisible(true);
     }
     

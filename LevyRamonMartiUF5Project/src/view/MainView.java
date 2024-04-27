@@ -156,7 +156,7 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
-        mainCtl.modifidyChampView();
+        mainCtl.chooseModifyView();
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     /**
