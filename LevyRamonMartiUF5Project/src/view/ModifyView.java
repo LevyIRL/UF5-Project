@@ -24,6 +24,7 @@ public class ModifyView extends javax.swing.JDialog {
     public ModifyView(java.awt.Frame parent, boolean modal, MainController ctl, int code) {
         super(parent, modal);
         this.mainCtl = ctl;
+        this.code = code;
         initComponents();
         initView(code);
         
@@ -263,6 +264,8 @@ public class ModifyView extends javax.swing.JDialog {
     
     private void modifyChampButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyChampButtonActionPerformed
         Champion modifyChamp = mainCtl.getChampList().searchChamp(code);
+        System.out.println(code);
+        modifyChamp.toString();
         
         String name = (String) (NameTextField.getText());
         Role role = null;
