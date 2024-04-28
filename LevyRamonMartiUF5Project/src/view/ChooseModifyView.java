@@ -36,6 +36,7 @@ public class ChooseModifyView extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         codeTextField = new javax.swing.JTextField();
         modifyButton = new javax.swing.JButton();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,7 +60,7 @@ public class ChooseModifyView extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -69,7 +70,10 @@ public class ChooseModifyView extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(modifyButton))
-                        .addGap(155, 155, 155))))
+                        .addGap(155, 155, 155))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(errorLabel)
+                        .addGap(121, 121, 121))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {codeTextField, modifyButton});
@@ -81,9 +85,11 @@ public class ChooseModifyView extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(errorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(modifyButton)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -94,13 +100,23 @@ public class ChooseModifyView extends javax.swing.JDialog {
     }//GEN-LAST:event_codeTextFieldActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
+        int code = 0;
+        boolean correctInfo = true;
         try {
-            int code = (int) (Double.parseDouble(codeTextField.getText()));
-            mainCtl.modifidyChampView(code);
-        } catch (Exception e) {
-            System.out.println(e.toString());
+            code = (int) (Double.parseDouble(codeTextField.getText()));
+        } catch (NumberFormatException e) {
+            errorLabel.setText("Wrong information.");
+            correctInfo = false;
         }
-        
+
+        if (correctInfo) {
+            if (mainCtl.getChampList().searchChamp(code) == null) {
+                errorLabel.setText("There's no champion with this code.");
+            } else {
+                mainCtl.modifidyChampView(code);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     /**
@@ -147,6 +163,7 @@ public class ChooseModifyView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codeTextField;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton modifyButton;
     // End of variables declaration//GEN-END:variables
