@@ -58,6 +58,11 @@ public class AddView extends javax.swing.JDialog {
         isRangedCheckBox = new javax.swing.JCheckBox();
         regionComboBox = new javax.swing.JComboBox<>();
         confirmationAddedLabel = new javax.swing.JLabel();
+        codeErrorLabel = new javax.swing.JLabel();
+        errorOnRoleLabel = new javax.swing.JLabel();
+        winrateErrorLabel = new javax.swing.JLabel();
+        pickrateErrorLabel = new javax.swing.JLabel();
+        banrateErrorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -127,10 +132,6 @@ public class AddView extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addChampButton)
-                .addGap(201, 201, 201))
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,18 +139,6 @@ public class AddView extends javax.swing.JDialog {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(winrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(topButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jngButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(midButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botButton, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(supButton, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(83, 83, 83)
@@ -163,22 +152,50 @@ public class AddView extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(pickrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(regionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(regionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(topButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jngButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(midButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(errorOnRoleLabel))
+                            .addComponent(codeErrorLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(winrateErrorLabel)
+                                    .addComponent(botButton, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pickrateErrorLabel))
+                                .addGap(18, 18, 18)
+                                .addComponent(supButton, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(banrateErrorLabel))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(confirmationAddedLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addChampButton)
+                .addGap(201, 201, 201))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, pickrateTextField, regionComboBox, winrateTextField});
@@ -191,11 +208,13 @@ public class AddView extends javax.swing.JDialog {
                 .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codeErrorLabel))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(errorOnRoleLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -207,15 +226,18 @@ public class AddView extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(winrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(winrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(winrateErrorLabel))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(pickrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pickrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pickrateErrorLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(banrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(banrateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(banrateErrorLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(isRangedCheckBox)
@@ -224,14 +246,14 @@ public class AddView extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(regionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(72, 72, 72)
                 .addComponent(addChampButton)
                 .addGap(40, 40, 40)
                 .addComponent(confirmationAddedLabel)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateTextField, botButton, isRangedCheckBox, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jngButton, midButton, pickrateTextField, regionComboBox, supButton, topButton, winrateTextField});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CodeTextField, NameTextField, addChampButton, banrateErrorLabel, banrateTextField, botButton, codeErrorLabel, errorOnRoleLabel, isRangedCheckBox, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jngButton, midButton, pickrateErrorLabel, pickrateTextField, regionComboBox, supButton, topButton, winrateErrorLabel, winrateTextField});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,54 +267,102 @@ public class AddView extends javax.swing.JDialog {
     }//GEN-LAST:event_regionComboBoxActionPerformed
 
     private void addChampButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addChampButtonActionPerformed
-        
-        int code = (int) (Double.parseDouble(CodeTextField.getText()));
+        int code = 0;
+        int winrate = 0;
+        double pickrate = 0;
+        double banrate = 0;
+        boolean correctInfo = true;
+
+        try {
+            code = (int) (Double.parseDouble(CodeTextField.getText()));
+            if(mainCtl.getChampList().searchChamp(code) != null){
+                codeErrorLabel.setText("Code already taken.");
+                correctInfo = false;
+            }else{
+                codeErrorLabel.setText("");
+            }
+        } catch (NumberFormatException e) {
+            correctInfo = false;
+            codeErrorLabel.setText("Wrong information.");
+        }
+
         String name = (String) (NameTextField.getText());
-        
+
         Role role = null;
-        if(topButton.isSelected()){
+        if (topButton.isSelected()) {
             role = mainCtl.getChampList().getRoleList().get(0);
-        }else if(jngButton.isSelected()){
+        } else if (jngButton.isSelected()) {
             role = mainCtl.getChampList().getRoleList().get(1);
-        }else if(midButton.isSelected()){
+        } else if (midButton.isSelected()) {
             role = mainCtl.getChampList().getRoleList().get(2);
-        }else if(botButton.isSelected()){
+        } else if (botButton.isSelected()) {
             role = mainCtl.getChampList().getRoleList().get(3);
-        }else if(supButton.isSelected()){
+        } else if (supButton.isSelected()) {
             role = mainCtl.getChampList().getRoleList().get(4);
         }
-        
-        int winrate = (int) (Double.parseDouble(winrateTextField.getText()));
-        double pickrate = (double) (Double.parseDouble(pickrateTextField.getText()));
-        double banrate = (double) (Double.parseDouble(banrateTextField.getText()));
+        if (role == null) {
+            correctInfo = false;
+            errorOnRoleLabel.setText("You haven't selcted a role.");
+        }else{
+            errorOnRoleLabel.setText("");
+        }
+
+        try {
+            winrate = (int) (Double.parseDouble(winrateTextField.getText()));
+            winrateErrorLabel.setText("");
+        } catch (NumberFormatException e) {
+            correctInfo = false;
+            winrateErrorLabel.setText("Wrong information.");
+        }
+
+        try {
+            pickrate = (double) (Double.parseDouble(pickrateTextField.getText()));
+            pickrateErrorLabel.setText("");
+        } catch (NumberFormatException e) {
+            correctInfo = false;
+            pickrateErrorLabel.setText("Wrong information.");
+        }
+
+        try {
+            banrate = (double) (Double.parseDouble(banrateTextField.getText()));
+            banrateErrorLabel.setText("");
+        } catch (NumberFormatException e) {
+            correctInfo = false;
+            banrateErrorLabel.setText("Wrong information.");
+        }
+
         boolean isRanged = isRangedCheckBox.isEnabled();
+
         String regionName = (String) (regionComboBox.getSelectedItem());
         Region region = null;
-        if(mainCtl.getChampList().searchRegion(regionName) == -1){
+        if (mainCtl.getChampList().searchRegion(regionName) == -1) {
             region = new Region(regionName);
             mainCtl.getChampList().addRegion(region);
-        }else{
+        } else {
             region = mainCtl.getChampList().getRegionList().get(mainCtl.getChampList().searchRegion(regionName));
         }
-        Champion newChamp = new Champion(code, name, role, region, winrate, pickrate, banrate, isRanged);
-        if(mainCtl.getChampList().addChamp(newChamp)){
-            confirmationAddedLabel.setText("Champion " + name + " with code " + code + " was succesfully added.");
-            CodeTextField.setText("");
-            NameTextField.setText("");
-            roleButtonGroup.clearSelection();
-            winrateTextField.setText("");
-            pickrateTextField.setText("");
-            banrateTextField.setText("");
-            isRangedCheckBox.setEnabled(false);
-            regionComboBox.setSelectedIndex(0);
-            
-            mainCtl.showChamps();
-        }else{
-            
+
+        if (correctInfo) {
+            Champion newChamp = new Champion(code, name, role, region, winrate, pickrate, banrate, isRanged);
+            if (mainCtl.getChampList().addChamp(newChamp)) {
+                confirmationAddedLabel.setText("Champion " + name + " with code " + code + " was succesfully added.");
+                CodeTextField.setText("");
+                NameTextField.setText("");
+                roleButtonGroup.clearSelection();
+                winrateTextField.setText("");
+                pickrateTextField.setText("");
+                banrateTextField.setText("");
+                isRangedCheckBox.setEnabled(false);
+                regionComboBox.setSelectedIndex(0);
+
+                mainCtl.showChamps();
+            } else {
+                confirmationAddedLabel.setText("There was an error while adding the champion.");
+            }
+        } else {
+            confirmationAddedLabel.setText("There was an error while adding the champion.");
+
         }
-        
-        
-        
     }//GEN-LAST:event_addChampButtonActionPerformed
 
     /**
@@ -341,9 +411,12 @@ public class AddView extends javax.swing.JDialog {
     private javax.swing.JTextField CodeTextField;
     private javax.swing.JTextField NameTextField;
     private javax.swing.JButton addChampButton;
+    private javax.swing.JLabel banrateErrorLabel;
     private javax.swing.JTextField banrateTextField;
     private javax.swing.JRadioButton botButton;
+    private javax.swing.JLabel codeErrorLabel;
     private javax.swing.JLabel confirmationAddedLabel;
+    private javax.swing.JLabel errorOnRoleLabel;
     private javax.swing.JCheckBox isRangedCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -355,11 +428,13 @@ public class AddView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jngButton;
     private javax.swing.JRadioButton midButton;
+    private javax.swing.JLabel pickrateErrorLabel;
     private javax.swing.JTextField pickrateTextField;
     private javax.swing.JComboBox<String> regionComboBox;
     private javax.swing.ButtonGroup roleButtonGroup;
     private javax.swing.JRadioButton supButton;
     private javax.swing.JRadioButton topButton;
+    private javax.swing.JLabel winrateErrorLabel;
     private javax.swing.JTextField winrateTextField;
     // End of variables declaration//GEN-END:variables
 }

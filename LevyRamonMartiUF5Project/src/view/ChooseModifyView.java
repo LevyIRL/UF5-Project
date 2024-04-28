@@ -94,8 +94,13 @@ public class ChooseModifyView extends javax.swing.JDialog {
     }//GEN-LAST:event_codeTextFieldActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
-        int code = (int) (Double.parseDouble(codeTextField.getText()));
-        mainCtl.modifidyChampView(code);
+        try {
+            int code = (int) (Double.parseDouble(codeTextField.getText()));
+            mainCtl.modifidyChampView(code);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     /**
