@@ -116,6 +116,7 @@ public class MainController {
     public static void saveChamp(Champion item){
         try {
             File f = new File("champs.obj");
+            f.createNewFile();
             FileOutputStream fos = new FileOutputStream(f, false);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(item);
