@@ -355,6 +355,8 @@ public class AddView extends javax.swing.JDialog {
                 isRangedCheckBox.setEnabled(false);
                 regionComboBox.setSelectedIndex(0);
 
+                mainCtl.saveChamp(newChamp);
+                
                 mainCtl.showChamps();
             } else {
                 confirmationAddedLabel.setText("There was an error while adding the champion.");
