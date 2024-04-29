@@ -4,12 +4,14 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author levy
  */
 
-public class Role {
+public class Role implements Serializable{
     private String name;
 
     public Role(String name) {

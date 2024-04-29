@@ -44,7 +44,7 @@ public class MainController {
     private boolean dataLoaded = false;
 
     public MainController() {
-        //chooseLoadFileView();
+        chooseLoadFileView();
         this.mainV = new MainView(this);
         if(!dataLoaded){
            this.champList = initData(); 

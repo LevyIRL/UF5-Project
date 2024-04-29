@@ -4,11 +4,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author levy
  */
-public class Region {
+public class Region implements Serializable{
     private String name;
 
     public Region(String name) {
