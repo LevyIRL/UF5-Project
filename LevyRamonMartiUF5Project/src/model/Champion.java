@@ -4,11 +4,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author levy
  */
-public class Champion implements Comparable<Champion>{
+public class Champion implements Comparable<Champion>, Serializable{
     private int code;
     private String name;
     private Role role;

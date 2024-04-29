@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +14,7 @@ import java.util.Set;
  *
  * @author levy
  */
-public class characterRoster {
+public class characterRoster implements Serializable{
     private String gameVersion;
     private Set<Champion> championList;
     private ArrayList<Role> roleList;
